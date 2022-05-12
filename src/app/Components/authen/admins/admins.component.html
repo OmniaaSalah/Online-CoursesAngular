@@ -1,0 +1,32 @@
+
+
+<table mat-table [dataSource]="Admins" class="mat-elevation-z8">
+
+ 
+    
+  
+   
+    <ng-container matColumnDef="userName" >
+      <th mat-header-cell *matHeaderCellDef style="background-color: black;"><b style="font-size: 30px;color: aliceblue;">Admin Name</b></th>
+      <td mat-cell *matCellDef="let element" id="in" ><b> {{element.userName}}</b> </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="Email">
+        <th mat-header-cell *matHeaderCellDef style="background-color: black;"><b style="font-size: 30px;color: aliceblue;">Admin Email</b></th>
+        <td mat-cell *matCellDef="let element" id="in" ><b> {{element.email}}</b> </td>
+      </ng-container>
+
+   
+  
+   
+ 
+  
+  
+  
+  
+     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr> 
+  </table>
+
+
+  <a><button id="btn" (click)="Back()"><b style="color: whitesmoke;font-size: 25px;">Back</b></button></a>
