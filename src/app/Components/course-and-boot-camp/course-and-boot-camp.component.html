@@ -1,0 +1,45 @@
+<div class="container-fluid d-flex  mt-5  mb-5" id="sixdiv">
+
+    <h1 class="mb-4" id="discovercrs"><b>Discover Course & Bootcamp</b></h1>
+    <button type="button" id="showbtn" class="btn  " data-mdb-ripple-color="dark"><a id="showbtnlink">Show All</a></button>
+  </div>
+    
+    <div id="sixdiv2" class="container-fluid d-flex  mt-5  mb-5">
+      <ng-container  *ngFor="let item of categrylist">
+      <button type="button" (click)="select(item)" class="btn  btn-rounded btngrp ms-2" data-mdb-ripple-color="dark">{{item.name}}</button>
+     
+      </ng-container>
+    </div>
+    <hr class="container-fluid " id="line">
+  
+    
+  <div class="container-fluid m-0" style="margin-top:80px;">
+    
+  <div class="row " style=" margin-left:118px;margin-top:30px;">
+      
+      <ng-container  *ngFor="let item of courseslist">
+        <div style=" width: 22%;" class="d-flex container-fluid card mt-5 ms-5" >
+          <img  class="img-fluid rounded" [src]="item.img"  alt="Denim Jeans" >
+          <p class="mt-3">{{item.date.dayfrom}} - {{item.date.dayto}} {{item.date.month}} {{item.date.year}}</p>
+          
+          <h1 style="height: 40%;"><b>{{item.name}} - {{item.type}}</b></h1>
+          <p>{{item.description}}</p>
+          <div class="mt-3">
+          <p class="price"><b class="ml-2" style="color:#DC4298 ;">{{item.newprice |currency:'$ '}}   </b><span style="color:gray ;">{{item.oldprice |currency:' $ '}}</span></p>
+  
+          
+          <hr class="cardmoney">
+          
+        
+          <button type="button" id="showbtn2" class="btn  " data-mdb-ripple-color="dark"><a id="showbtnlink">Show All</a></button>
+       
+        </div>
+        </div>
+        
+      </ng-container>
+      <div class="mb-5 mt-3 " id="emptydiv" [hidden]="!shownempty"><b>No Courses Yet</b></div>
+  </div>
+  
+  </div>
+  
+  

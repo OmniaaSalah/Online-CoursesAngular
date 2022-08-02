@@ -1,5 +1,7 @@
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { UserService } from 'src/app/Services/user.service';
+import { MatDialog } from '@angular/material/dialog';
+import { PopupComponent } from '../popup/popup.component';
+
 
 @Component({
   selector: 'app-header',
@@ -7,25 +9,25 @@ import { UserService } from 'src/app/Services/user.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  isuserlogged:boolean= false;
-  constructor(private userservice:UserService) { 
+  
+  constructor(private EmailDialog:MatDialog) { 
 
   }
 
   ngOnInit(): void {
     
     
-    this.isuserlogged=this.userservice.IsUserLogged;
-  }
 
-  Logout()
-  {
-    if(confirm("Are you sure that You need to Logout "))
-    {localStorage.removeItem("token");
-     
-     location.reload();
-    }
   }
+  PopUpEmail()
+{
+ 
+   
+      this.EmailDialog.open(PopupComponent);
+     
+ 
+}
+
 
  
 

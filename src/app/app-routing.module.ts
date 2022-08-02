@@ -5,25 +5,23 @@ import { HomeComponent } from './Components/home/home.component';
 import { NotFoundComponent } from './Components/not-found/not-found.component';
 import { EmptyLayoutComponent } from './empty-layout/empty-layout.component';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
-import { NotFoundLayoutComponent } from './not-found-layout/not-found-layout.component';
+
 import { MatDialogModule } from '@angular/material/dialog';
-import { UserAuthGuard } from './Guards/user-auth.guard';
 
 
-const routes: Routes = [
+
+const routes: Routes = 
+[
+  
   {path:'',component:MainLayoutComponent,children:[
   {path:'',redirectTo:'/Home',pathMatch:'full'},
-  {path:'Basic',loadChildren:()=>import('src/app/Components/basic/basic.module').then(m=>m.BasicModule)},
-  {path:'Products',loadChildren:()=>import('src/app/Components/productModule/product.module').then(m=>m.ProductModule),canActivate:[UserAuthGuard]},
+   {path:'Home',component:HomeComponent}
   ]},
+
   {path:'',component:EmptyLayoutComponent,children:[
-  {path:'Authen',loadChildren:()=>import('src/app/Components/authen/authen.module').then(m=>m.AuthenModule)}
-
-]},
-  {path:'',component:NotFoundLayoutComponent,children:[
-   {path:'Home',component:HomeComponent},
-  {path:'**',component:NotFoundComponent}]}
-
+    {path:'**',component:NotFoundComponent}
+  
+  ]}
 ];
 
 @NgModule({

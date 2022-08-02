@@ -11,7 +11,7 @@ export class CatogryAPIService {
 
   constructor(private httpclient:HttpClient) { }
 
-  getAllproduct():Observable<Icatogry[]>
+  getAllcategories():Observable<Icatogry[]>
   {
     
     return this.httpclient.get<Icatogry[]>(environment.APIBaseURL+'Categories');
